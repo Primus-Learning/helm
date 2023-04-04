@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongodb-service
+  name: {{ .Values.app.name }}-service
 spec:
   selector:
-    app: mongodb
+    app: {{ .Values.app.name }}
   ports:
     - protocol: TCP
-      port: 27017
-      targetPort: 27017
+      port: {{ .Values.app.deployment.port }}
+      targetPort: {{ .Values.app.deployment.port }}
